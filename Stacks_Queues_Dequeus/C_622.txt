@@ -1,0 +1,33 @@
+One possible way of writing an algorithm to change a normal expression (also known as infix notation) into postfix notation is to use a stack data structure and the following rules:
+
+- Initialize an empty stack and an empty output string.
+- Scan the infix expression from left to right.
+- For each token in the expression:
+    - If the token is a number or a variable, append it to the output string.
+    - If the token is a left parenthesis, push it onto the stack.
+    - If the token is a right parenthesis, pop and append all operators from the stack to the output string until a left parenthesis is encountered. Pop and discard the left parenthesis from the stack.
+    - If the token is an operator, pop and append all operators from the stack to the output string that have higher or equal precedence than the current operator. Then push the current operator onto the stack.
+- When the expression is fully scanned, pop and append all remaining operators from the stack to the output string.
+
+For example, to change the normal expression "((5+2) * (8-3))/4" into postfix notation, we can follow these steps:
+
+- Push ( onto the stack. Stack: [(]
+- Append 5 to the output string. Output: 5
+- Push + onto the stack. Stack: [(, +]
+- Append 2 to the output string. Output: 5 2
+- Encounter ). Pop and append + from the stack to the output string. Output: 5 2 +
+- Pop and discard ( from the stack. Stack: []
+- Push * onto the stack. Stack: [*]
+- Push ( onto the stack. Stack: [*, (]
+- Append 8 to the output string. Output: 5 2 + 8
+- Push - onto the stack. Stack: [*, (, -]
+- Append 3 to the output string. Output: 5 2 + 8 3
+- Encounter ). Pop and append - from the stack to the output string. Output: 5 2 + 8 3 -
+- Pop and discard ( from the stack. Stack: [*]
+- Encounter /. Pop and append * from the stack to the output string. Output: 5 2 + 8 3 - *
+- Push / onto the stack. Stack: [/]
+- Append 4 to the output string. Output: 5 2 + 8 3 - * 4
+- The expression is fully scanned and no more tokens are left. Pop and append / from the stack to the output string. Output: 5 2 + 8 3 - * 4 /
+- The final postfix expression is "5 2 + 8 3 - * 4 /".
+
+I hope this helps you understand how to change normal expressions into postfix expressions using a stack. 😊

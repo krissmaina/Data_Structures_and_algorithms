@@ -1,0 +1,18 @@
+One possible nonrecursive algorithm for enumerating all permutations of the numbers {1,2, . . . ,n} using an explicit stack is:
+
+- Initialize an empty stack S and a list P to store the permutations.
+- Push an empty list to S.
+- While S is not empty, do the following:
+  - Pop the top list from S and store it in a variable L.
+  - If L has length n, then append L to P.
+  - Else, for each number i from 1 to n that is not in L, do the following:
+    - Create a new list M by appending i to L.
+    - Push M to S.
+- Return P as the final list of permutations.
+
+This algorithm works by using the stack to store partial permutations of the numbers. 
+It starts with an empty list and then adds one number at a time to each partial permutation until it reaches the length n. 
+It then stores the complete permutation in the list P. 
+The algorithm repeats this process until the stack is empty, which means that all permutations have been generated. 
+The time complexity of this algorithm is O(n!n), where n is the number of numbers. 
+The space complexity is O(n!n), because of the stack and the list P.

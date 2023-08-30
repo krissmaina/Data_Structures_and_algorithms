@@ -1,0 +1,22 @@
+C-6.21 Show how to use a stack S and a queue Q to generate all possible subsets
+of an n-element set T nonrecursively.
+
+
+One possible way to use a stack S and a queue Q to generate all possible subsets of an n-element set T nonrecursively is:
+
+- Initialize S and Q to be empty.
+- Push an empty subset to S.
+- While S is not empty, do the following:
+  - Pop the top subset from S and store it in a variable X.
+  - Enqueue X to Q.
+  - For each element e in T that is not in X, do the following:
+    - Create a new subset Y by adding e to X.
+    - Push Y to S.
+- Return Q as the final queue of subsets.
+
+This method works by using the stack to store partial subsets of T and the queue to store complete subsets of T. 
+It starts with an empty subset and then adds one element at a time to each partial subset until it reaches the size of T. 
+It then stores the complete subset in the queue. 
+The method repeats this process until the stack is empty, which means that all subsets have been generated. 
+The time complexity of this method is O(2^n * n), where n is the size of T. The space complexity is also O(2^n * n), 
+because of the stack and the queue.
