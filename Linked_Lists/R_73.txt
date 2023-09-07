@@ -1,0 +1,8 @@
+R-7.3 Describe a recursive algorithm that counts the number of nodes in a singly
+linked list.
+
+count_nodes(head)
+    if head is None
+        return 0
+    
+    return 1 + count_nodes(head.next)

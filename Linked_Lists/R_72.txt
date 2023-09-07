@@ -1,0 +1,12 @@
+R-7.2 Describe a good algorithm for concatenating two singly linked lists L and
+M, given only references to the first node of each list, into a single list L'
+that contains all the nodes of L followed by all the nodes of M.
+
+- set walk_l to be the head of L
+- while walk_l.next is not None
+    walk_l = walk_l.next (go to the next node)
+walk_l is the last node of L
+
+- set walk_m to be the head of M
+- while walk_m.next is not None
+    add walk to singly linked list L

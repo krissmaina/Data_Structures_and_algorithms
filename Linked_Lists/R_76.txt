@@ -1,0 +1,18 @@
+R-7.6 Suppose that x and y are references to nodes of circularly linked lists,
+although not necessarily the same list. Describe a fast algorithm for telling
+if x and y belong to the same list.
+
+- Set initial = x
+- Set walk = x.next
+
+- If initial == y   # x and y are the same
+    - return True
+
+- while walk != initial
+    # check if walk is equal to y
+    if walk == y
+        return True
+
+    walk = walk.next
+
+- Return False 

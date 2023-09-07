@@ -1,0 +1,12 @@
+R-7.1 Give an algorithm for finding the second-to-last node in a singly linked
+list in which the last node is indicated by a next reference of None.
+
+- If len(list) < 2
+    raise Exception(List does not have enough elements)
+
+- Let walk be the head of the singly linked list
+
+- while walk.next.next is not None
+     walk = walk.next
+
+- return walk

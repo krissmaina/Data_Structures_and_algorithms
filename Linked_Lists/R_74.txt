@@ -1,0 +1,55 @@
+R-7.4 Describe in detail how to swap two nodes x and y (and not just their contents)
+in a singly linked list L given references only to x and y. Repeat
+this exercise for the case when L is a doubly linked list. Which algorithm
+takes more time?
+
+        Singly Linked List Case
+----------------------------------------------------------
+- Set walk to be the head of the singly linked list
+
+# traverse the list to get the previous nodes of x and y
+- while walk.next is not None
+    - if walk.next == x
+        set prev_x = walk
+    - elif walk.next == y
+        set prev_y = walk
+
+    - if prev_x and prev_y 
+        break 3 # both the previous nodes were found
+
+    - Set walk = walk.next
+
+# Get the nodes after x and y
+- Set after_y = y.next
+- Set after_x = x.next
+
+# now the swapping
+- Set prev_x.next = y
+- Set y.next = after_x
+
+- Set prev_y.next = x
+- Set x.next = after_y
+
+
+            Doubly Linked List Case
+--------------------------------------------------------------
+# Get the previous nodes of x and y as well as the next nodes
+- Set prev_x = x.prev
+- Set after_x = x.next
+
+- Set prev_y = y.prev
+- Set after_y = y.next
+
+# Place y in x's position
+- Set prev_x.next = y
+- Set y.next = after_x
+- Set after_x.prev = y
+
+# Place x in y's position
+- Set prev_y.next = x
+- Set x.next = after_y
+- Set after_y.prev = x
+
+
+The Singly Linked List algorithm takes more time with O(n)
+while Doubly Linked List algorithm takes O(1).
